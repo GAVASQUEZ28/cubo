@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cubo</title>
+        <style>
+            .body {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                background-color: #000;
+            }
+            .container {
+                perspective: 1000px;
+                margin-top: 7em;
+            }
+            .cube {
+                position: relative;
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+                transform-style: preserve-3d;
+                transform: rotateX('50deg') rotateY('50deg');
+                animation: rotate 5s linear infinite;
+            }
+            .face {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                text-align: center;
+                line-height: 200px;
+                color: #fff;
+                font-size: 36px;
+                font-weight: bold;
+            }
+            .front {
+                transform: translateZ(100px);
+                background-color: #ff0000;
+            }
+            .back{
+                transform: rotateY('180deg') translateZ(100px);
+                background-color: #00ff00;
+            }
+            .left {
+                transform: rotateY('-90deg') translateZ(100px);
+                background-color: #0000ff;
+            }
+            .right {
+                transform: rotateY('90deg') translateZ(100px);
+                background-color: #ffff00;
+            }
+            .top {
+                transform: rotateX('90deg') translateZ(100px);
+            }
+            .bottom {
+                transform: rotateX('-90deg') translateZ(100px);
+            }
+
+            @keyframes rotate {
+                from {
+                    transform: rotateX('50deg') rotateY('50deg');
+                }
+                to {
+                    transform: rotateX('50deg') rotateY('50deg') rotateZ('360deg');
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+        </div>
+    </body>
+</html>
